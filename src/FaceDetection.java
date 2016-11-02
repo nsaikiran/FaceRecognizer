@@ -12,6 +12,7 @@ import org.bytedeco.javacpp.opencv_core.IplImage;
 public class FaceDetection {
 
     public static final String XML_FILE =
+            //haarcascade.xml from opencv 2.4.0
             "/Users/snagaram/WorkSpace/extra/haarcascade.xml";
     public static final String IMAGE = "/Users/snagaram/Pictures/Photos/group" +
             ".jpg";
