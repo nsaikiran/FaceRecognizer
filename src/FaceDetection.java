@@ -1,13 +1,11 @@
-import static org.bytedeco.javacpp.opencv_core.*;
-import static org.bytedeco.javacpp.opencv_imgcodecs.cvLoadImage;
-import static org.bytedeco.javacpp.opencv_imgcodecs.cvSaveImage;
-import static org.bytedeco.javacpp.opencv_imgproc.CV_AA;
-import static org.bytedeco.javacpp.opencv_imgproc.cvRectangle;
-import static org.bytedeco.javacpp.opencv_objdetect.*;
-import static org.bytedeco.javacpp.opencv_highgui.*;
+import org.bytedeco.javacpp.Loader;
+import org.bytedeco.javacpp.Pointer;
+import org.bytedeco.javacpp.opencv_core.*;
+import org.bytedeco.javacpp.opencv_objdetect;
 
-import org.bytedeco.javacpp.*;
-import org.bytedeco.javacpp.opencv_core.IplImage;
+import static org.bytedeco.javacpp.opencv_core.*;
+import static org.bytedeco.javacpp.opencv_imgcodecs.*;
+import static org.bytedeco.javacpp.opencv_objdetect.*;
 
 public class FaceDetection {
 
@@ -20,7 +18,11 @@ public class FaceDetection {
     public static void main(String[] args) {
 
         IplImage img = cvLoadImage(IMAGE);
-        detect(img);
+        Mat original = imread(IMAGE);
+        Mat grayscale = imread(IMAGE,IMREAD_GRAYSCALE);
+        imwrite("orginal_written.jpg",original);
+        imwrite("gray_written.jpg",grayscale);
+//        detect(img);
     }
 
     public static void detect(IplImage src) {
